@@ -1,0 +1,13 @@
+Avec $> strings level03
+on trouve cette ligne :
+
+/usr/bin/env echo Exploit me
+
+On voit que l'executable utilise echo
+
+On va donc faire une manip pour remplacer `echo` par `getflag`
+
+1. On va copier le bin de `getflag` dans /tmp (on a les droits)
+2. on le renome en `echo`
+3. on remplace la variable d'env `PATH` en `PATH=/tmp` pour qu'il tape sur notre faux echo
+4. on relance le binaire `level03`
