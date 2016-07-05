@@ -1,0 +1,4 @@
+On trouve un fichier appartenant a level05 dans /var/mail contenant une task cron 
+*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+
+On cree un script dans /opt/openarenaserver qui exectutera la commande getflag et inscrira son resultat dans un fichier /tmp/flag toutes les deux minutes
