@@ -1,0 +1,2 @@
+En recherchant les fichiers appartenants a l'utilisateur flag00 on trouve le fichier /usr/sbin/john contenant une string de caractères crypté.
+Une recherche sur un site comme dcode permet définir l'aglo utilisé pour crypter, en l'occurence une rotation de césar ayant pour clé le chiffre 15
