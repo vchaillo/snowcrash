@@ -1,5 +1,7 @@
-Lorsque l'on ouvre level11.lua on trouve cette ligne 
-prog = io.popen("echo "..pass.." | sha1sum", "r")
+Lorsque l'on ouvre level11.lua on trouve
+local server = assert(socket.bind("127.0.0.1", 5151)) => le server est 127.0.0.1 sur le port 5151
+
+prog = io.popen("echo "..pass.." | sha1sum", "r") 
 
 la fonction io.popen : 
 
