@@ -1,0 +1,18 @@
+Lorsque l'on ouvre level11.lua on trouve cette ligne 
+prog = io.popen("echo "..pass.." | sha1sum", "r")
+
+la fonction io.popen : 
+
+io.popen (prog [, mode])
+Starts program prog in a separated process and returns a file handle that you can use to read data from this program (if mode is "r", the default) or to write data to this program (if mode is "w").
+
+Donc cette commande execute prog ("echo "..pass.." | sha1sum")
+On doit donc s'arranger pour lui faire faire notre getflag
+
+..pass.. est la donnee qu'on envoi
+si on dit que ..pass.. == getflag, il ne se passe rien (on a pas de print dans le programme)
+                       == getflag > /tmp/level11, on trouve un fichier /tmp/level11 avec ecrit getflag
+
+la commande exectute etant 'echo getflag > /tmp/level11 | sha1sum'
+                       == ; getflag > /tmp/level11, on trouve le fichier /tmp/level11 avec le flag
+car la commande etant 'echo ; getflag > /tmp/level11 | sha1sum'
