@@ -15,6 +15,6 @@ On doit donc s'arranger pour lui faire faire notre getflag
 si on dit que ..pass.. == getflag, il ne se passe rien (on a pas de print dans le programme)
                        == getflag > /tmp/level11, on trouve un fichier /tmp/level11 avec ecrit getflag
 
-la commande exectute etant 'echo getflag > /tmp/level11 | sha1sum'
+la commande execute etant 'echo getflag > /tmp/level11 | sha1sum'
                        == ; getflag > /tmp/level11, on trouve le fichier /tmp/level11 avec le flag
 car la commande etant 'echo ; getflag > /tmp/level11 | sha1sum'

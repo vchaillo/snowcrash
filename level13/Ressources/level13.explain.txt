@@ -1,0 +1,5 @@
+En executant le programme, on remarque qu'il verifie l'uid de l'user, il attend un uid=4242
+
+En desassemblant le programme avec gdb, on remarque l'appel a getuid avant la comparaison avec l'uid attendu.
+On cree donc un breakpoint sur l'instruction de comparaison pour pouvoir changer la valeur du registre qui va etre compare.
+On relance le programme pour avoir le flag
