@@ -1,0 +1,16 @@
+Cette fois ci pas d'autre choix que de s'attaquer directement au binaire de getflag
+
+On copie /bin/getflag dans /tmp par expemple pour pouvoir le modifier directement
+Si on dessassemble le binaire avec objdump -d on peut voir differents appels systeme, en particulier un appel a ptrace
+On doit donc remplacer l'appel a ptrace par des nop (no Operation) (90) afin d'eviter cet appel systeme
+
+On ouvre le fichier avec vim, puis on passe en mode hexa avec la commande :%!xxd
+On recherche l'appel a ptrace e8 b2fb ffff et on le remplace par des nop
+On sauvegarde le fichier en ayant pris soin de quitter le mode hexa avec la commande :%!xxd -r
+
+Maintenant la procedure est la meme que dans l'exercice precedent :
+On definit un breakpoint sur la comparaison suivant l'appel a getuid (b **0x08048b0a)
+On lance le programme avec r
+Arrive au breakpoint on change la valeur du registre eax (set $eax=3014)
+On deduit la valeur de l'uid (3014) en observant le fichier /etc/passwd
+Il ne reste plus qu'a exectuer la suite du programme avec c pour obtenir le flag final
