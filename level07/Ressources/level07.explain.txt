@@ -1,0 +1,2 @@
+On remarque que le script affiche le login de l'utilisateur courant en le recuperant dans les variables d'environement.
+Il faut donc remplacer notre login dans l'env par un getflag entre backquotes afin qu'il soit execute via le echo du programme
