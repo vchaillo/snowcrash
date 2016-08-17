@@ -1,2 +1,0 @@
-On decrypte le script php se trouvant dans le home du level06.
-En comprenant la regex on comprend que tout ce qui sera match par le premier preg_replace sera execute comme du code php. Il suffit d'inserer l'appel au binaire de getflag sous la bonne forme pour qu'il soit match et execute par la regex.
