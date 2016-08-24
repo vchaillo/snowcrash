@@ -1,0 +1,51 @@
+Dans le fichier level06.php on vois que la fonction x() est execute
+
+
+En parametre de cette fonction on vois que l'on met argv[1] puis argv[2]
+
+la fonction x :
+
+function x($y, $z) {
+		 $a = file_get_contents($y);
+		 $a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a);
+		 $a = preg_replace("/\[/", "(", $a);
+		 $a = preg_replace("/\]/", ")", $a);
+		 return $a;
+}
+
+On a donc $y qui est notre premier argument
+On vois que $y est lu avec la fonction file_get_contents() qui demande un chemin d'access vers un fichier en parametre
+On doit donc passer un chemin d'access vers un fichier en parametre
+
+la premiere regex va nous permettre d'executer du code grace a l'option '/e'
+"Avec cette option obsolète, preg_replace() effectue la substitution normale des références arrières dans la chaîne de remplacement, puis l'évalue comme un code PHP"
+
+On vois que le match se fait sur la chaine "[x (.*)]"
+(.*) = match tout les carac sauf \n
+Donc match tout les cara entre "[x " et "]"
+
+On va devoir donc passer en parametre de l'executable un fichier contenant la commande getflag entre "[x " et "]"
+si on test notre fichier avec:
+[x getflag]
+
+on a getflag d'affiche
+
+si on test:
+[x `getflag`]
+
+on a un Nope there is no token here for you sorry. Try again :)
+La commande est execute mais le resultat n'est pas le bon
+
+On va donc devoir utiliser notre fonction getflag d'une autre facon
+
+on peut recuperer le resultat d'une fonction en php avec la notation suivante :
+
+echo "This is the value of the var named by the return value of getName(): {${getName()}}";
+
+@doc : http://php.net/manual/fr/language.types.string.php#language.types.string.parsing
+
+Nous voulons utiliser getflag avec l'aide de la fonction system() de php
+on va donc ecrire dans notre fichier :
+[x {${system(getflag)}}]
+
+Et on obtient alors notre flag :)
