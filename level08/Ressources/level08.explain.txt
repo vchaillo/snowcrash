@@ -1,0 +1,34 @@
+On a a la racine un executable level08 et un fichier token
+lorsque l'on execute ./level08
+
+./level08 [file to read]
+
+Il faut donc un fichier en parametre (a priori notre token)
+on essaye donc :
+
+./level08 token 
+You may not access 'token'
+
+On va donc faire un strings de notre executable pour voir se qu'il contient
+La partie qui nous interesse:
+
+%s [file to read]
+token
+You may not access '%s'
+Unable to open %s
+Unable to read fd %d
+
+A priori ca ressemble bien a un
+if (var == token)
+{
+	printf("you may not access '%s'", var);
+}
+
+On va donc essaye de changer le nom de token
+le cp et le mv ne fonctionent pas car on a pas les permissions de lecture
+on va donc faire un lien symbolique
+
+$> mkdir /tmp/level08
+$> ln -s ~/token /tmp/level08/mdp
+$> ~/level08 /tmp/level08/mdp
+quif5eloekouj29ke0vouxean
