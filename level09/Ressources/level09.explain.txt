@@ -1,0 +1,65 @@
+Comme l'exercice precedent on a un executable et un fichier token
+On lance l'executable
+
+$> ./level09
+You need to provied only one arg.
+
+Il demande un argument, pourquoi pas notre token ? Testons
+
+$> ./level09 token
+tpmhr
+
+Ca a pas l'air de trop nos aider, essayons un autre parametre 
+
+$> ./level09 42
+43
+
+Il semblerais qu'il utilise le parametre et le change d'une certain facon 
+
+$> ./level 111111111
+123456789
+
+Il change chaque caractere en fonction de ca position dans la chaine
+
+Si on regarde dans token 
+$> cat token
+f4kmm6p|=p�n��DB�Du��
+
+On a du bullshit, a priori cette chaine a ete cree avec l'aide de l'executable
+Comme on sait comment elle est encode il nous suffit de faire un petit executable pour le decoder
+
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+	(void)argc;
+	int		i;
+	int			fd;
+	char		buff[50];
+	int				res;
+
+	if (argv[1])
+	{
+		fd = open(argv[1], O_RDONLY);
+		res = read(fd, &buff, 50);
+		buff[res] = 0;
+		i = 0;
+		while (buff[i])
+		{
+			printf("%c", buff[i] - i);
+			i++;
+		}
+		printf("\n");
+		close(fd);
+	}
+	else
+	{
+		printf("No arguments given\n");
+	}
+}
+
+$> gcc level09.c
+$> ./a.out ~/token
+f3iji1ju5yuevaus41q1afiuq

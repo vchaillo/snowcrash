@@ -6,7 +6,6 @@
 - Installer john the ripper, gdb et un compte wireshark avant la correction
 
 - level01 revoir l'utilisation de john the ripper
-- level09 a revoir + fichier explications
 - level10 a revoir + fichier explications
 - level11 revoir les explications
 - level13 revoir l'utilisation de gdb
