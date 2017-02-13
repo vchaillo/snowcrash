@@ -1,15 +1,11 @@
-# snowcrash
+#snowcrash
 
-* [Subject] (https://github.com/vchaillo/snowcrash/blob/master/snow_crash.pdf)
-
-### Todo
-- Installer john the ripper, gdb et un compte wireshark avant la correction
-
-- level01 revoir l'utilisation de john the ripper
-- level10 a revoir + fichier explications
-- level11 revoir les explications
-- level13 revoir l'utilisation de gdb
-- level14 revoir l'utilisation de gdb
+* [Sujet] (https://github.com/vchaillo/snowcrash/blob/master/snow_crash.pdf)
 
 =============
-Project of 42
+###Description
+
+Projet introductif à la sécurité en informatique, Snow Crash a pour but de faire découvrir la sécurité dans différents sous-domaines, avec une approche orientée développeur. Vous allez vous familiariser avec plusieurs langages (ASM/perl/php..), développer une certaine logique pour comprendre des programmes inconnus, et ainsi prendre conscience des problèmes liés à de simples "erreurs" de programmation .
+
+=============
+Projet de l'ecole 42
