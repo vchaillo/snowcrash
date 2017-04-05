@@ -1,11 +1,11 @@
-#snowcrash
+snowcrash
+=========
 
-* [Sujet] (https://github.com/vchaillo/snowcrash/blob/master/snow_crash.pdf)
+[Subject](../master/snow_crash.pdf)
 
-=============
-###Description
+### Description
 
-Projet introductif à la sécurité en informatique, Snow Crash a pour but de faire découvrir la sécurité dans différents sous-domaines, avec une approche orientée développeur. Vous allez vous familiariser avec plusieurs langages (ASM/perl/php..), développer une certaine logique pour comprendre des programmes inconnus, et ainsi prendre conscience des problèmes liés à de simples "erreurs" de programmation .
+> Projet introductif à la sécurité en informatique, Snow Crash a pour but de faire découvrir la sécurité dans différents sous-domaines, avec une approche orientée développeur.
+> Vous allez vous familiariser avec plusieurs langages (ASM/perl/php..), développer une certaine logique pour comprendre des programmes inconnus, et ainsi prendre conscience des problèmes liés à de simples "erreurs" de programmation.
 
-=============
-Projet de l'ecole 42
+###### Project of school 42
